@@ -15,12 +15,40 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <header>
+  <header class="purple-top row justify-content-center">
+    <div class="flex-basis">
+      <h3 class="white">Code Journal</h3>
+    </div>
   </header>
   <main>
 
-    <div data-view="entry-form">
+    <div class="row justify-content-center new-entry">
+      <h2>New Entry</h2>
+    </div>
 
+    <div data-view="entry-form col-phone">
+
+      <form action="">
+        <div class="row justify-content-center">
+          <img src="images/placeholder-image-square.jpg" alt="placeholder-image-square" class="image">
+          <div class="column margin-left">
+            <label for="title">Title</label>
+            <input type="text" id="title" required>
+
+
+            <label for="photo-url">Photo URL</label>
+            <input type="url" id="photo-url" required>
+          </div>
+        </div>
+
+        <div class="column column-width align-items-center">
+          <label class="notes">Notes</label>
+          <textarea name="Notes" id="Notes" cols="30" rows="6" required></textarea>
+
+          <button>SAVE</button>
+        </div>
+
+      </form>
     </div>
 
   </main>

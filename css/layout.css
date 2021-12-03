@@ -32,3 +32,8 @@
     width: 50%;
   }
 }
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
