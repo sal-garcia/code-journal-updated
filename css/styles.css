@@ -69,6 +69,7 @@ button {
 
 .white {
   color: white;
+  font-weight: 500;
 }
 
 /* media */
@@ -86,6 +87,7 @@ button {
 
   .notes {
     margin-top: 1px;
+    margin-right: 8%;
   }
 
   textarea {
@@ -93,6 +95,10 @@ button {
   }
 
   .new-entry {
+    margin-right: 15%;
+  }
+
+  .flex-basis {
     margin-right: 15%;
   }
 }
