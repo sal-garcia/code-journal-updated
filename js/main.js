@@ -21,9 +21,10 @@ function formFunc(event) {
     Notes: $Notes.value,
     NextEntryId: data.nextEntryId
   };
-  localStorage.setItem('Form-Input-Stringified', JSON.stringify(formInput));
+
   data.entries.unshift(formInput);
   data.nextEntryId++;
   $image.setAttribute('src', 'images/placeholder-image-square.jpg');
   $form.reset();
+  // localStorage.setItem('Form-Input-Stringified', JSON.stringify(formInput));
 }
