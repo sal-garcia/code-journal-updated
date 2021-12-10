@@ -40,20 +40,20 @@ function takesJournalEntry(event) { // function for when the entries title is cl
   var $divImage = document.createElement('DIV');// creates div element
   $divImage.classList.add('style-for-image-div');// adds a class for styling purposes
   var $img = document.createElement('IMG');// creates img element
-  $img.setAttribute('src', data.entries[0].PhotoUrl);
-  $img.setAttribute('alt', 'images');
+  $img.setAttribute('src', data.entries[0].PhotoUrl);// assigns src to the img tag
+  $img.setAttribute('alt', 'images');// assigns alt to the img tag
 
-  var $rightContainer = document.createElement('DIV');
+  var $rightContainer = document.createElement('DIV');// creates a div for the text
   var $titleH3 = document.createElement('H3');
   var $topParagraph = document.createElement('P');
   $topParagraph.textContent = data.entries[0].Notes;
   $titleH3.textContent = data.entries[0].Title;
 
-  $rightContainer.appendChild($titleH3);
-  $rightContainer.appendChild($topParagraph);
+  $rightContainer.appendChild($titleH3);// appends the title onto the text div
+  $rightContainer.appendChild($topParagraph);// appends the p onto the text div
 
-  $divImage.appendChild($img);
-  $entriesSpace.appendChild($divImage);
+  $divImage.appendChild($img); // appends img to the div for images
+  $entriesSpace.appendChild($divImage);// is appended to the actual div on html
   $entriesSpace.appendChild($rightContainer);
-  $entriesThatWillHide.classList.remove('hidden');
+  $entriesThatWillHide.classList.remove('hidden');// makes it visible
 }
