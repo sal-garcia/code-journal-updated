@@ -72,6 +72,35 @@ button {
   font-weight: 500;
 }
 
+.margin-entries {
+  margin-left: 15px;
+}
+
+/* issue two */
+
+.entries-space {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.new {
+  height: 30px;
+  background-color: rgb(51 4 114);
+  border: none;
+  color: white;
+  border-radius: 4px;
+  padding: 0 12px;
+}
+
+.hidden {
+  opacity: 0;
+}
+
+#entries {
+  cursor: pointer;
+}
+
 /* media */
 
 @media screen and (max-width: 768px) {

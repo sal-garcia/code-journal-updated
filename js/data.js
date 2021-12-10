@@ -6,13 +6,14 @@ var data = {
   editing: null,
   nextEntryId: 1
 };
-var $formInputStringified = localStorage.getItem('Form-Input-Stringified');
-if ($formInputStringified !== null) {
-  $formInputStringified = JSON.parse($formInputStringified);
-}
 
 window.addEventListener('beforeunload', reloadFunc);
 
 function reloadFunc(event) {
   localStorage.setItem('dataObject', JSON.stringify(data));
+}
+
+var $formInputStringified = localStorage.getItem('dataObject');
+if ($formInputStringified !== null) {
+  data = JSON.parse($formInputStringified);
 }
