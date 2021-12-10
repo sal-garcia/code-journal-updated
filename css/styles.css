@@ -109,12 +109,8 @@ button {
 
 /* issue 2 */
 
-/* issue two */
-
 .entries-space {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
 .new {
@@ -132,4 +128,26 @@ button {
 
 #entries {
   cursor: pointer;
+}
+
+.width-for-image {
+  width: 100%;
+}
+
+.style-for-image-div {
+  width: 60%;
+}
+
+.container-new-button {
+  display: flex;
+  justify-content: space-between;
+}
+
+.new-btn {
+  font-size: large;
+}
+
+.size-of-right-container {
+  width: 38%;
+  margin-left: 10px;
 }

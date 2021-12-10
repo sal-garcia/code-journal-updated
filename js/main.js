@@ -39,11 +39,14 @@ function takesJournalEntry(event) { // function for when the entries title is cl
   $newEntryContainer.classList.add('hidden');// hides the form
   var $divImage = document.createElement('DIV');// creates div element
   $divImage.classList.add('style-for-image-div');// adds a class for styling purposes
+
   var $img = document.createElement('IMG');// creates img element
+  $img.classList.add('width-for-image');
   $img.setAttribute('src', data.entries[0].PhotoUrl);// assigns src to the img tag
   $img.setAttribute('alt', 'images');// assigns alt to the img tag
 
-  var $rightContainer = document.createElement('DIV');// creates a div for the text
+  var $rightContainer = document.createElement('DIV');
+  $rightContainer.classList.add('size-of-right-container');// creates a div for the text
   var $titleH3 = document.createElement('H3');
   var $topParagraph = document.createElement('P');
   $topParagraph.textContent = data.entries[0].Notes;
