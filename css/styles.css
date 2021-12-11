@@ -151,3 +151,7 @@ button {
   width: 38%;
   margin-left: 10px;
 }
+
+.row-top {
+  display: flex;
+}

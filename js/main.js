@@ -49,6 +49,7 @@ function takesJournalEntry(event) { // function for when the entries title is cl
   $rightContainer.classList.add('size-of-right-container');// creates a div for the text
   var $titleH3 = document.createElement('H3');
   var $topParagraph = document.createElement('P');
+  $topParagraph.classList.add('width-paragraph');
   $topParagraph.textContent = data.entries[0].Notes;
   $titleH3.textContent = data.entries[0].Title;
 
