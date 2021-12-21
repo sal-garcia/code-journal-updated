@@ -30,8 +30,10 @@ function formFunc(event) { // function is passed into the form event listener
   $image.setAttribute('src', 'images/placeholder-image-square.jpg');// updated image
   $form.reset();
   // MOVES DATA ENTRY
+
   while ($entriesSpace.firstChild) { // it avoids the over lapping of previous content in entries with new content
-    $entriesSpace.removeChild($entriesSpace.firstChild);
+    $entriesSpace.removeChild($entriesSpace.firstChild);// by removing the first child of $entriesSpace
+    // which is the elements that have been created
   }
   movesDataEntry();// it will now run this function when i click on the save btn in the form
 }
