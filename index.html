@@ -23,15 +23,15 @@
   </header>
   <main>
 
-    <div id="new-entry-container">
+    <div id="new-entry-container" class="hidden">
 
       <div class="row justify-content-center new-entry">
         <h2>New Entry</h2>
       </div>
-
+      <!--forms-->
       <div data-view="entry-form">
 
-        <form action="" id="form">
+        <form action="" id="form" >
           <div class="row justify-content-center">
             <img src="images/placeholder-image-square.jpg" alt="placeholder-image-square" class="image">
             <div class="column margin-left">
@@ -46,15 +46,15 @@
             <label class="notes">Notes</label>
             <textarea name="Notes" id="notes" cols="30" rows="6" required></textarea>
 
-            <button type="submit" class="button">SAVE</button>
+            <button type="submit" class="button-save">SAVE</button>
           </div>
 
         </form>
       </div>
-
+      <!--form-->
     </div>
-
-    <div data-view="entries" class="entries hidden">
+    <!--Data entries-->
+    <div data-view="entries" class="entries">
       <div class="container">
         <div>
           <div class="container-new-button">
