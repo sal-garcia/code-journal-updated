@@ -43,12 +43,15 @@ var $entriesBtn = document.querySelector('#entries');
 $entriesBtn.addEventListener('click', takesJournalEntry);
 
 function takesJournalEntry(indexValue) { // function for when the entries title is clicked
-// hides the form and show entries
+  // hides the form and show entries
   backToEntries();// it calls the function that automatically switches the view swap from
   // the form to the entries
   if (!data.entries[indexValue]) { // logic gate to make sure theres data in the entries so it wont get an error when trying to switch and theres nothing
     return;
   }
+
+  var $containerForAll = document.createElement('DIV');
+
   var $divImage = document.createElement('DIV');// creates div element
   $divImage.classList.add('style-for-image-div');// adds a class for styling purposes
 
@@ -57,39 +60,44 @@ function takesJournalEntry(indexValue) { // function for when the entries title 
   $img.setAttribute('src', data.entries[indexValue].PhotoUrl);// assigns src to the img tag
   $img.setAttribute('alt', 'images');// assigns alt to the img tag
 
+  $divImage.appendChild($img);
+
   var $rightContainer = document.createElement('DIV');
   $rightContainer.classList.add('size-of-right-container');// creates a div for the text
+
   var $titleH3 = document.createElement('H3');
+  $titleH3.textContent = data.entries[indexValue].Title;
+
   var $topParagraph = document.createElement('P');
   $topParagraph.classList.add('width-paragraph');
   $topParagraph.textContent = data.entries[indexValue].Notes;
-  $titleH3.textContent = data.entries[indexValue].Title;
 
-  $rightContainer.appendChild($titleH3);// appends the title onto the text div
-  $rightContainer.appendChild($topParagraph);// appends the p onto the text div
+  // $containerForAll.appendChild($entriesSpace);
+  $rightContainer.appendChild($titleH3);
+  $rightContainer.appendChild($topParagraph);
 
-  $divImage.appendChild($img); // appends img to the div for images
-  $entriesSpace.appendChild($divImage);// is appended to the actual div on html
-  $entriesSpace.appendChild($rightContainer);
+  $containerForAll.appendChild($divImage);
+  $containerForAll.appendChild($rightContainer);
 
-}
-
-function backToEntries() { // it will view swap from the form to the entries
-  $entriesThatWillHide.classList.remove('hidden');
-  $newEntryContainer.classList.add('hidden');
+  return $containerForAll;
 }
 
 window.addEventListener('DOMContentLoaded', movesDataEntry);// when the dom object model loads, the function will
 function movesDataEntry() { // go thru the length of data entries and enter each one into the takesjournalentry function
   for (var i = 0; i < data.entries.length; i++) {
-    takesJournalEntry(i);// is i replacimng the indexvalue parameter
+    var callsJournalEntry = takesJournalEntry(i);// i replacimng the indexvalue parameter
 
+    $entriesSpace.appendChild(callsJournalEntry);
   }
 }
 
 $newBtn.addEventListener('click', backToForms);// event listener to "new" button on
 // entries
 
+function backToEntries() { // it will view swap from the form to the entries
+  $entriesThatWillHide.classList.remove('hidden');
+  $newEntryContainer.classList.add('hidden');
+}
 function backToForms() { // it will view swap from the entries to the form
   $entriesThatWillHide.classList.add('hidden');
   $newEntryContainer.classList.remove('hidden');
