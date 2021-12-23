@@ -16,38 +16,78 @@
 </head>
 <body>
   <header class="purple-top row justify-content-center">
-    <div class="flex-basis">
+    <div class="flex-basis row-top">
       <h3 class="white">Code Journal</h3>
+      <h4 class="white margin-entries" id="entries">Entries</h4>
     </div>
   </header>
   <main>
 
-    <div class="row justify-content-center new-entry">
-      <h2>New Entry</h2>
+    <div id="new-entry-container" class="hidden">
+
+      <div class="row justify-content-center new-entry">
+        <h2>New Entry</h2>
+      </div>
+      <!--forms-->
+      <div data-view="entry-form">
+
+        <form action="" id="form" >
+          <div class="row justify-content-center">
+            <img src="images/placeholder-image-square.jpg" alt="placeholder-image-square" class="image">
+            <div class="column margin-left">
+              <label for="title">Title</label>
+              <input type="text" id="title" required>
+              <label for="photo-url">Photo URL</label>
+              <input type="url" id="photo-url" required>
+            </div>
+          </div>
+
+          <div class="column column-width align-items-center">
+            <label class="notes">Notes</label>
+            <textarea name="Notes" id="notes" cols="30" rows="6" required></textarea>
+
+            <button type="submit" class="button-save">SAVE</button>
+          </div>
+
+        </form>
+      </div>
+      <!--form-->
     </div>
+    <!--Data entries-->
+    <div data-view="entries" class="entries">
+      <div class="container">
+        <div>
+          <div class="container-new-button">
 
-    <div data-view="entry-form">
+            <h2>Entries</h2>
 
-      <form action="" id="form">
-        <div class="row justify-content-center">
-          <img src="images/placeholder-image-square.jpg" alt="placeholder-image-square" class="image">
-          <div class="column margin-left">
-            <label for="title">Title</label>
-            <input type="text" id="title" required>
-            <label for="photo-url">Photo URL</label>
-            <input type="url" id="photo-url" required>
+            <button class="new-btn">New</button>
+
           </div>
         </div>
+        <ul class="entries-space row">
 
-        <div class="column column-width align-items-center">
-          <label class="notes">Notes</label>
-          <textarea name="Notes" id="notes" cols="30" rows="6" required></textarea>
+        </ul>
 
-          <button type="submit" class="button">SAVE</button>
-        </div>
-
-      </form>
+      </div>
     </div>
+
+
+
+
+    <!--rough draft-->
+    <!-- <div class="journal-entry-container">
+          <div>
+            <img src="#" alt="image">
+          </div>
+          <div>
+            <h3>title</h3>
+            <ul>
+              <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt officiis molestias expedita fuga dicta corrupti fugiat nobis, ipsam quasi error. Commodi repellendus laboriosam nobis, voluptates autem omnis alias at officia.</li>
+              <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil itaque vel fuga, architecto enim suscipit ratione non consequuntur vero facere, autem, odio mollitia est debitis reprehenderit dolorem magnam! Quis, animi!</li>
+            </ul>
+          </div>
+        </div> -->
 
   </main>
   <script src="js/data.js"></script>

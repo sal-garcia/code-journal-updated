@@ -72,6 +72,10 @@ button {
   font-weight: 500;
 }
 
+.margin-entries {
+  margin-left: 15px;
+}
+
 /* media */
 
 @media screen and (max-width: 768px) {
@@ -101,4 +105,57 @@ button {
   .flex-basis {
     margin-right: 15%;
   }
+}
+
+/* issue 2 */
+
+.entries-space {
+  display: flex;
+}
+
+.new {
+  height: 30px;
+  background-color: rgb(51 4 114);
+  border: none;
+  color: white;
+  border-radius: 4px;
+  padding: 0 12px;
+}
+
+.hidden {
+  opacity: 0;
+}
+
+#entries {
+  cursor: pointer;
+}
+
+.width-for-image {
+  width: 100%;
+}
+
+.style-for-image-div {
+  width: 60%;
+}
+
+.container-new-button {
+  display: flex;
+  justify-content: space-between;
+}
+
+.new-btn {
+  font-size: large;
+}
+
+.size-of-right-container {
+  width: 38%;
+  margin-left: 10px;
+}
+
+.row-top {
+  display: flex;
+}
+
+li {
+  list-style-type: none;
 }
