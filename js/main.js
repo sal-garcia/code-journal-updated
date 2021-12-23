@@ -50,9 +50,9 @@ function takesJournalEntry(indexValue) { // function for when the entries title 
     return;
   }
 
-  var $containerForAll = document.createElement('DIV');
+  var $containerForAll = document.createElement('UL');
   $containerForAll.setAttribute('class', 'row');
-  var $divImage = document.createElement('DIV');// creates div element
+  var $divImage = document.createElement('LI');// creates div element
   $divImage.classList.add('style-for-image-div');// adds a class for styling purposes
 
   var $img = document.createElement('IMG');// creates img element
@@ -62,7 +62,7 @@ function takesJournalEntry(indexValue) { // function for when the entries title 
 
   $divImage.appendChild($img);
 
-  var $rightContainer = document.createElement('DIV');
+  var $rightContainer = document.createElement('LI');
   $rightContainer.classList.add('size-of-right-container');// creates a div for the text
 
   var $titleH3 = document.createElement('H3');
