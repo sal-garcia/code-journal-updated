@@ -51,7 +51,7 @@ function takesJournalEntry(indexValue) { // function for when the entries title 
   }
 
   var $containerForAll = document.createElement('DIV');
-
+  $containerForAll.setAttribute('class', 'row');
   var $divImage = document.createElement('DIV');// creates div element
   $divImage.classList.add('style-for-image-div');// adds a class for styling purposes
 
