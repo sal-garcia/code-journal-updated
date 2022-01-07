@@ -7,6 +7,7 @@ var $Notes = document.querySelector('#notes');
 var $image = document.querySelector('.image');
 var $entriesThatWillHide = document.querySelector('.entries');
 var $newEntryContainer = document.querySelector('#new-entry-container');
+var $editEntry = document.querySelector('#edit-entry');
 // querying element from html
 var $form = document.querySelector('#form');// querying the form element html
 // var $buttonSave = document.querySelector('.button-save');
@@ -125,7 +126,10 @@ $buttonSave.addEventListener('click', backToEntries);
 // $rightContainer.addEventListener('click', iconClickedFunc); //right container being clicked
 
 function iconClickedFunc(event) {
-  backToForms();
+
+  $editEntry.innerHTML = 'Edit Entry';
+  $entriesThatWillHide.classList.add('hidden');
+  $newEntryContainer.classList.remove('hidden');
 
   data.editing = data.entries[event.target.dataset.index];// assigns the info that had been pushed inside
   // of the entries array of the data object at the event that has been targeted with the dataset of index
