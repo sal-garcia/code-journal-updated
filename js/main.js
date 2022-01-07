@@ -24,14 +24,15 @@ function formFunc(event) { // function is passed into the form event listener
     Notes: $Notes.value,
     NextEntryId: data.nextEntryId// current entry id
   };
-  if (data.editing === null) {
+  if (data.editing === null) { // if conditionals are put here because i will click submit again when editing
     data.entries.unshift(formInput);// the new object is being pushed into the array entries of the
     data.nextEntryId++; // data object, and the data entryId is incremented
-  } else {
-    data.editing.Title = formInput.Title;
-    data.editing.Notes = formInput.Notes;
-    data.editing.PhotoUrl = formInput.PhotoUrl;
-    data.editing = null;
+  } else { // this else will always run first since it starts as not null event if i edit the same one 2x
+    data.editing.Title = formInput.Title;// because when i edit it, the icon click func runs
+    data.editing.Notes = formInput.Notes;// which makes data.editing not null
+    data.editing.PhotoUrl = formInput.PhotoUrl;// --these assign the edited value of the formInput into
+    // the data.editing
+    data.editing = null;// makes it null and makes the first if statement run
   }
   $image.setAttribute('src', 'images/placeholder-image-square.jpg');// updated image
   $form.reset();
@@ -94,7 +95,6 @@ function takesJournalEntry(indexValue) { // function for when the entries title 
 
   // $rightContainer.addEventListener('click', () => { console.log('parent element clicked'); }); // right container being clicked
   $icon.addEventListener('click', iconClickedFunc); // right container being clicked
-
   return $containerForAll;
 }
 
@@ -126,9 +126,12 @@ $buttonSave.addEventListener('click', backToEntries);
 
 function iconClickedFunc(event) {
   backToForms();
-  data.editing = data.entries[event.target.dataset.index];
+
+  data.editing = data.entries[event.target.dataset.index];// assigns the info that had been pushed inside
+  // of the entries array of the data object at the event that has been targeted with the dataset of index
+  // into the editing array of the data obj
   // console.log(data);
-  $Title.value = data.editing.Title;
-  $Notes.value = data.editing.Notes;
+  $Title.value = data.editing.Title;// it then updates the value of each input so that it shows up when
+  $Notes.value = data.editing.Notes;// you are editing it
   $photoUrl.value = data.editing.PhotoUrl;
-}
+}// after this it goes back to the FormFunc when submit is clicked
