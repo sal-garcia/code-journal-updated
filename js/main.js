@@ -22,11 +22,17 @@ function formFunc(event) { // function is passed into the form event listener
     Title: $Title.value, // in the memory location of the object variable
     PhotoUrl: $photoUrl.value,
     Notes: $Notes.value,
-    NextEntryId: data.nextEntryId// also of the nextEntryId from data.js
+    NextEntryId: data.nextEntryId// current entry id
   };
-
-  data.entries.unshift(formInput);// the new object is being pushed into the array entries of the
-  data.nextEntryId++; // data object, and the data entryId is incremented
+  if (data.editing === null) {
+    data.entries.unshift(formInput);// the new object is being pushed into the array entries of the
+    data.nextEntryId++; // data object, and the data entryId is incremented
+  } else {
+    data.editing.Title = formInput.Title;
+    data.editing.Notes = formInput.Notes;
+    data.editing.PhotoUrl = formInput.PhotoUrl;
+    data.editing = null;
+  }
   $image.setAttribute('src', 'images/placeholder-image-square.jpg');// updated image
   $form.reset();
   // MOVES DATA ENTRY
@@ -67,17 +73,27 @@ function takesJournalEntry(indexValue) { // function for when the entries title 
 
   var $titleH3 = document.createElement('H3');
   $titleH3.textContent = data.entries[indexValue].Title;
-
   var $topParagraph = document.createElement('P');
   $topParagraph.classList.add('width-paragraph');
   $topParagraph.textContent = data.entries[indexValue].Notes;
 
+  var $iconDiv = document.createElement('DIV');// icon
+  $iconDiv.classList.add('icon-div');
+  var $icon = document.createElement('i');
+  // $icon.setAttribute('data-index', indexValue);//two different ways of assigning the index value parameter
+  $icon.innerHTML = `<i data-index=${indexValue} class="fas fa-edit"></i>`;// to the data attribute
+  $iconDiv.appendChild($titleH3);
+  $iconDiv.appendChild($icon);
   // $containerForAll.appendChild($entriesSpace);
-  $rightContainer.appendChild($titleH3);
+  // $rightContainer.appendChild($titleH3);
+  $rightContainer.appendChild($iconDiv);
   $rightContainer.appendChild($topParagraph);
 
   $containerForAll.appendChild($divImage);
   $containerForAll.appendChild($rightContainer);
+
+  // $rightContainer.addEventListener('click', () => { console.log('parent element clicked'); }); // right container being clicked
+  $icon.addEventListener('click', iconClickedFunc); // right container being clicked
 
   return $containerForAll;
 }
@@ -105,3 +121,14 @@ function backToForms() { // it will view swap from the entries to the form
 }
 var $buttonSave = document.querySelector('.button-save');// it will view swap when you click save in the form
 $buttonSave.addEventListener('click', backToEntries);
+
+// $rightContainer.addEventListener('click', iconClickedFunc); //right container being clicked
+
+function iconClickedFunc(event) {
+  backToForms();
+  data.editing = data.entries[event.target.dataset.index];
+  // console.log(data);
+  $Title.value = data.editing.Title;
+  $Notes.value = data.editing.Notes;
+  $photoUrl.value = data.editing.PhotoUrl;
+}
