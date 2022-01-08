@@ -159,3 +159,18 @@ button {
 li {
   list-style-type: none;
 }
+
+.fa-edit {
+  cursor: pointer;
+}
+
+/* issue 3 */
+
+.icon-div {
+  display: flex;
+  justify-content: space-between;
+}
+
+i {
+  padding-top: 10px;
+}
