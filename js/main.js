@@ -1,5 +1,13 @@
 /* global data */
 /* exported data */
+var $btnSaveColor = document.querySelector('.button-save');
+var $nextEntryId = document.querySelector('#entry-id');
+var $redBtn = document.querySelector('.red-btn');
+var $purpleTop = document.querySelector('.purple-top');
+var $grayBtn = document.querySelector('.gray-btn');
+var $modal = document.querySelector('.modal');
+var $Body = document.querySelector('.body');
+var $DeleteEntry = document.querySelector('.delete-entry');
 var $newBtn = document.querySelector('.new-btn');
 var $Title = document.querySelector('#title');
 var $photoUrl = document.querySelector('#photo-url');
@@ -24,6 +32,7 @@ function formFunc(event) { // function is passed into the form event listener
     PhotoUrl: $photoUrl.value,
     Notes: $Notes.value,
     NextEntryId: data.nextEntryId// current entry id
+
   };
   if (data.editing === null) { // if conditionals are put here because i will click submit again when editing
     data.entries.unshift(formInput);// the new object is being pushed into the array entries of the
@@ -114,6 +123,7 @@ $newBtn.addEventListener('click', backToForms);// event listener to "new" button
 function backToEntries() { // it will view swap from the form to the entries
   $entriesThatWillHide.classList.remove('hidden');
   $newEntryContainer.classList.add('hidden');
+  $DeleteEntry.classList.add('entry-white');
 }
 function backToForms() { // it will view swap from the entries to the form
   $entriesThatWillHide.classList.add('hidden');
@@ -130,6 +140,7 @@ function iconClickedFunc(event) {
   $editEntry.innerHTML = 'Edit Entry';
   $entriesThatWillHide.classList.add('hidden');
   $newEntryContainer.classList.remove('hidden');
+  $DeleteEntry.classList.remove('entry-white');
 
   data.editing = data.entries[event.target.dataset.index];// assigns the info that had been pushed inside
   // of the entries array of the data object at the event that has been targeted with the dataset of index
@@ -137,5 +148,61 @@ function iconClickedFunc(event) {
   // console.log(data);
   $Title.value = data.editing.Title;// it then updates the value of each input so that it shows up when
   $Notes.value = data.editing.Notes;// you are editing it
-  $photoUrl.value = data.editing.PhotoUrl;
-}// after this it goes back to the FormFunc when submit is clicked
+  $photoUrl.value = data.editing.PhotoUrl;// after this it goes back to the FormFunc when submit is clicked
+  $nextEntryId.value = data.editing.NextEntryId;
+}
+
+$DeleteEntry.addEventListener('click', deleteEntryFunc);
+
+function deleteEntryFunc(event) {
+  $Body.classList.add('gray-modal');
+  $modal.classList.remove('hidden');
+  $purpleTop.classList.add('header-gray');
+  $DeleteEntry.classList.add('gray-delete');
+  $btnSaveColor.classList.add('btn-save-color');
+  $Title.disabled = true;
+  $Title.classList.add('background-gray');
+  $photoUrl.disabled = true;
+  $photoUrl.classList.add('background-gray');
+  $Notes.disabled = true;
+
+}
+
+$grayBtn.addEventListener('click', grayBtnFunc);
+
+function grayBtnFunc(event) {
+  $Body.classList.remove('gray-modal');
+  $modal.classList.add('hidden');
+  $purpleTop.classList.remove('header-gray');
+  $DeleteEntry.classList.remove('gray-delete');
+  $btnSaveColor.classList.remove('btn-save-color');
+  $Title.disabled = false;
+  $Title.classList.remove('background-gray');
+  $photoUrl.disabled = false;
+  $photoUrl.classList.remove('background-gray');
+  $Notes.disabled = false;
+}
+
+$redBtn.addEventListener('click', redBtnFunc);
+
+function redBtnFunc(event) {
+
+  for (var i = 0; i < data.entries.length; i++) {
+
+    if (data.entries[i].NextEntryId === parseInt($nextEntryId.value)) {
+      data.entries.splice(i, 1);
+
+    }
+  }
+  $Body.classList.remove('gray-modal');
+  $modal.classList.add('hidden');
+  $purpleTop.classList.remove('header-gray');
+  $DeleteEntry.classList.remove('gray-delete');
+  $btnSaveColor.classList.remove('btn-save-color');
+  $Title.disabled = false;
+  $Title.classList.remove('background-gray');
+  $photoUrl.disabled = false;
+  $photoUrl.classList.remove('background-gray');
+  $Notes.disabled = false;
+
+}
