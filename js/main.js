@@ -189,7 +189,7 @@ function redBtnFunc(event) {
 
   for (var i = 0; i < data.entries.length; i++) {
 
-    if (data.entries[i].NextEntryId === parseInt($nextEntryId.value)) {
+    if (data.entries[i].NextEntryId === parseInt($nextEntryId.value)) { // to keep track of each entry
       data.entries.splice(i, 1);
 
     }
@@ -204,5 +204,4 @@ function redBtnFunc(event) {
   $photoUrl.disabled = false;
   $photoUrl.classList.remove('background-gray');
   $Notes.disabled = false;
-
 }
