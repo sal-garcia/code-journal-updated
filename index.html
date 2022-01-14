@@ -14,7 +14,8 @@
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
+<body class="body">
+
   <header class="purple-top row justify-content-center">
     <div class="flex-basis row-top">
       <h3 class="white">Code Journal</h3>
@@ -40,6 +41,7 @@
               <input type="text" id="title" required>
               <label for="photo-url">Photo URL</label>
               <input type="url" id="photo-url" required>
+              <input type="text" id="entry-id" class="hidden">
             </div>
           </div>
 
@@ -47,7 +49,15 @@
             <label class="notes">Notes</label>
             <textarea name="Notes" id="notes" cols="30" rows="6" required></textarea>
 
-            <button type="submit" class="button-save">SAVE</button>
+            <div id="delete-entry-div">
+              <a class="spacing delete-entry entry-white red" href="#">Delete Entry</a>
+              <button type="submit" class="button-save spacing">SAVE</button>
+            </div>
+            <div class="modal hidden">
+              <h4 class="text-align">Are you sure you want to delete this entry</h4>
+              <button class="gray-btn">Cancel</button>
+              <button class="red-btn">Confirm</button>
+            </div>
           </div>
 
         </form>
@@ -63,6 +73,7 @@
             <h2>Entries</h2>
 
             <button class="new-btn">New</button>
+
 
           </div>
         </div>
